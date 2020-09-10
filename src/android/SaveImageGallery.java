@@ -3,6 +3,7 @@ package com.agomezmoron.saveImageGallery;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -163,8 +164,8 @@ public class SaveImageGallery extends CordovaPlugin {
         try {
             String deviceVersion = Build.VERSION.RELEASE;
             Calendar c = Calendar.getInstance();
-            String date = EMPTY_STR + c.get(Calendar.YEAR) + c.get(Calendar.MONTH) + c.get(Calendar.DAY_OF_MONTH)
-                    + c.get(Calendar.HOUR_OF_DAY) + c.get(Calendar.MINUTE) + c.get(Calendar.SECOND);
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+            String date = sdf.format(c.getTime());
 
             int check = deviceVersion.compareTo("2.3.3");
 
